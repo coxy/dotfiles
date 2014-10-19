@@ -404,7 +404,7 @@ defaults write com.apple.dock showhidden -bool true
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
 
 # Add iOS Simulator to Launchpad
-sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app" "/Applications/iOS Simulator.app"
+#sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app" "/Applications/iOS Simulator.app"
 
 # Add a spacer to the left side of the Dock (where the applications are)
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
@@ -540,14 +540,14 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Solarized Dark theme by default in Terminal.app
-TERM_PROFILE='Solarized Dark xterm-256color';
-CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
-if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
-  open "${HOME}/init/${TERM_PROFILE}.terminal";
-  sleep 1; # Wait a bit to make sure the theme is loaded
-  defaults write com.apple.terminal 'Default Window Settings' -string "${TERM_PROFILE}";
-  defaults write com.apple.terminal 'Startup Window Settings' -string "${TERM_PROFILE}";
-fi;
+#TERM_PROFILE='Solarized Dark xterm-256color';
+#CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
+#if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
+#  open "${HOME}/init/${TERM_PROFILE}.terminal";
+#  sleep 1; # Wait a bit to make sure the theme is loaded
+#  defaults write com.apple.terminal 'Default Window Settings' -string "${TERM_PROFILE}";
+#  defaults write com.apple.terminal 'Startup Window Settings' -string "${TERM_PROFILE}";
+#fi;
 
 # Enable “focus follows mouse” for Terminal.app and all X11 apps
 # i.e. hover over a window and start typing in it without clicking first
