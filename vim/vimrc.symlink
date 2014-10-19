@@ -1,4 +1,72 @@
-syntax on
+call pathogen#infect()
+set nocompatible                " choose no compatibility with legacy vi
+set encoding=utf-8              " sensible encoding
+set showcmd                     " display incomplete commands
+filetype plugin indent on       " load file type plugins + indentation
+set number                      " need those line numbers
+set ruler                       " show the line/column number of the cursor position
+set shell=sh                    " hack for rvm
+"" Whitespace
+set nowrap                      " wrap lines, switch with set wrap/nowrap
+set linebreak                   " break line for wrapping at end of a word
+set tabstop=2 shiftwidth=2      " a tab is two spaces
+set expandtab                   " use spaces
+set backspace=indent,eol,start  " backspace through everything in insert mode
+set scrolloff=3                 " Minimum number
+set history=10000
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" colours
+syntax on
+set background=dark
+colorscheme solarized
+
+"" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+set wildmenu                    " enhanced command line completion
+set wildignore+=*.o,*.obj,.bundle,coverage,.DS_Store,_html,.git,*.rbc,*.class,.svn,vendor/gems/*,vendor/rails/*
+set complete=.,w,b,u,t          " don't complete with included files (i)
+set foldmethod=manual           " for super fast autocomplete
+
+" Window
+set cmdheight=2                 " number of lines for the command line
+set laststatus=2                " always have a status line
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set showtabline=2               " always show tab bar
+set winwidth=84                 " 
+
+" force vim
+map <Left> :echo "damnit!"<cr>
+map <Right> :echo "you suck!"<cr>
+map <Up> :echo "this is why you fail"<cr>
+map <Down> :echo "nooooo!"<cr>
+
+" NERDTree
+map <C-t> :NERDTreeToggle<cr>
+
+" CtlrP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" Omnifunc
+" if has("autocmd")
+"   autocmd FileType ruby set omnifunc=rubycomplete#Complete
+"   autocmd FileType ruby let g:rubycomplete_buffer_loading=1
+"   autocmd FileType ruby let g:rubycomplete_classes_in_global=1
+" endif
+
+" Supertab
+" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" SnipMate
+let g:acp_behaviorSnipmateLength = 1
+" let g:snippets_dir = "~/.vim/snippets"
+"
+"
+" default file types
+syntax on
+filetype on
+au BufNewFile,BufRead *.dump set filetype=sql
+au BufNewFile,BufRead *.rxslt set filetype=ruby
+au BufNewFile,BufRead *.gsub set filetype=ruby

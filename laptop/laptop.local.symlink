@@ -1,0 +1,16 @@
+# https://github.com/thoughtbot/laptop
+
+brew update
+
+brew install ffmpeg
+brew install elasticsearch
+brew install imagemagick --with-webp
+
+brew tap caskroom/cask
+brew install brew-cask
+
+brew cask install dropbox
+brew cask install google-chrome
+brew cask install vlc
+
+cleanup

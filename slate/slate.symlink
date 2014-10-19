@@ -1,0 +1,185 @@
+# Configs
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config secondsBetweenRepeat 0.1
+config checkDefaultsOnLoad true
+config focusCheckWidthMax 3000
+config keyboardLayout dvorak
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+#config windowHintsDuration 5
+config windowHintsSpread true
+#config windowHintsOrder persist
+ 
+# Monitor Aliases
+alias mon-laptop      2880x1800
+alias mon-asus    2560x1440
+ 
+# Misc Aliases
+alias showHintsLeftHand hint AOEUIYQJKX
+alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
+alias browser 'Safari'
+alias editor 'MacVim'
+ 
+# Abstract positions
+alias full          move screenOriginX;screenOriginY                  screenSizeX;screenSizeY
+alias full80        move screenOriginX+screenSizeX*0.1;screenOriginY+screenSizeY*0.1  screenSizeX*0.8;screenSizeY*0.8
+alias full70        move screenOriginX+screenSizeX*0.15;screenOriginY+screenSizeY*0.15  screenSizeX*0.7;screenSizeY*0.7
+alias full50        move screenOriginX+screenSizeX*0.25;screenOriginY+screenSizeY*0.25  screenSizeX*0.5;screenSizeY*0.5
+
+alias lefthalf      move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY
+alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY    screenSizeX/2;screenSizeY
+
+alias rightmost     move screenOriginX+screenSizeX*0.4;screenOriginY  screenSizeX*0.6;screenSizeY
+alias rightless     move screenOriginX+screenSizeX*0.6;screenOriginY  screenSizeX*0.4;screenSizeY
+
+alias leftmost      move screenOriginX;screenOriginY                  screenSizeX*0.6;screenSizeY
+alias leftless      move screenOriginX;screenOriginY                  screenSizeX*0.4;screenSizeY
+
+alias tophalf       move screenOriginX;screenOriginY                  screenSizeX;screenSizeY/2
+alias bottomhalf    move screenOriginX;screenSizeY/2                  screenSizeX;screenSizeY/2
+
+alias tophalfmost   move screenOriginX;screenOriginY                  screenSizeX;screenSizeY*0.6
+alias bottomhalfmost move screenOriginX;screenSizeY*0.4               screenSizeX;screenSizeY*0.6
+
+alias tophalfless    move screenOriginX;screenOriginY                screenSizeX;screenSizeY*0.4
+alias bottomhalfless move screenOriginX;screenSizeY*0.6              screenSizeX;screenSizeY*0.4
+
+alias topleft       move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY/2
+alias bottomleft    move screenOriginX;screenSizeY/2                  screenSizeX/2;screenSizeY/2
+alias topright      move screenSizeX/2;screenOriginY                  screenSizeX/2;screenSizeY/2
+alias bottomright   move screenSizeX/2;screenSizeY/2                  screenSizeX/2;screenSizeY/2
+
+alias topleftmost   move screenOriginX;screenOriginY                  screenSizeX*0.6;screenSizeY/2
+alias bottomleftmost move screenOriginX;screenSizeY/2                 screenSizeX*0.6;screenSizeY/2
+alias toprightmost   move screenOriginX+screenSizeX*0.4;screenOriginY screenSizeX*0.6;screenSizeY/2
+alias bottomrightmost move screenOriginX+screenSizeX*0.4;screenSizeY/2 screenSizeX*0.6;screenSizeY/2
+
+alias topleftless   move screenOriginX;screenOriginY                  screenSizeX*0.4;screenSizeY/2
+alias bottomleftless move screenOriginX;screenSizeY/2                 screenSizeX*0.4;screenSizeY/2
+alias toprightless    move screenOriginX+screenSizeX*0.6;screenOriginY screenSizeX*0.4;screenSizeY/2
+alias bottomrightless move screenOriginX+screenSizeX*0.6;screenSizeY/2 screenSizeX*0.4;screenSizeY/2
+alias iTerm          move screenOriginX;screenSizeY*0.6+22                 screenSizeX*0.6;screenSizeY*0.4
+alias MacVim         move screenOriginX;screenOriginY                 screenSizeX*0.6;screenSizeY*0.6
+alias Sublime        move screenOriginX;screenOriginY                 screenSizeX*0.6;screenSizeY*0.6
+alias iossim         move screenOriginX+screenSizeX*0.6+(screenSizeX*0.4-480)/2;(screenSizeY-876)/2 screenSizeX*0.3;screenSizeY/2
+
+
+# Concrete positions
+#alias 1-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${mon-laptop}
+#alias 1-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         ${mon-laptop}
+#alias 1-right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY         ${mon-laptop}
+#alias 2-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         ${mon-asus}
+#alias 2-right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY         ${mon-asus}
+#alias 2-righttop    move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2       ${mon-asus}
+#alias 2-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2       ${mon-asus}
+ 
+# 2 Monitor layout
+#layout 2monitors 'iTerm':MAIN_FIRST                       ${2-rightbottom} | ${1-left}
+#layout 2monitors 'Safari':REPEAT                          ${1-full}
+#layout 2monitors 'Sublime Text':REPEAT                    ${1-full}
+#layout 2monitors 'MacVim':REPEAT                        ${1-full}
+#layout 2monitors 'Mail':MAIN_FIRST                        ${2-left}
+#layout 2monitors 'Xcode':REPEAT                           ${1-full}
+#layout 2monitors 'iTunes':REPEAT                          ${1-full}
+ 
+# 1 Monitor layout
+layout 1monitor 'iTerm':MAIN_FIRST                       ${iTerm}
+layout 1monitor 'MacVim':MAIN_FIRST                      ${MacVim}
+layout 1monitor 'Sublime Text':MAIN_FIRST                ${Sublime}
+layout 1monitor 'iOS Simulator':MAIN_FIRST               ${iossim}
+layout 1monitor 'Safari':REPEAT                          ${lefthalf}
+layout 1monitor 'Dash':REPEAT                            ${righthalf}
+layout 1monitor 'Mail':MAIN_FIRST                        ${full}
+layout 1monitor 'Xcode':REPEAT                           ${full}
+layout 1monitor 'iTunes':REPEAT                          ${lefthalf}
+layout 1monitor 'Spotify':REPEAT                         ${lefthalf}
+layout 1monitor 'Evernote':REPEAT                        ${righthalf}
+ 
+# Default Layouts
+#default 2monitors resolutions:${mon-laptop};${mon-asus};
+default 1monitor  resolutions:${mon-laptop};${mon-asus};
+ 
+# Numpad location Bindings
+bind pad0:cmd layout 1monitor
+#bind pad.:cmd layout 2monitors
+
+bind pad1:cmd ${bottomleft}
+bind pad2:cmd ${bottomhalf}
+bind pad3:cmd ${bottomright}
+bind pad4:cmd ${lefthalf}
+bind pad5:cmd ${full}
+bind pad6:cmd ${righthalf}
+bind pad7:cmd ${topleft}
+bind pad8:cmd ${tophalf}
+bind pad9:cmd ${topright}
+
+bind pad1:cmd;alt ${bottomleftmost}
+bind pad2:cmd;alt ${bottomhalfmost}
+bind pad3:cmd;alt ${bottomrightmost}
+bind pad4:cmd;alt ${leftmost}
+bind pad5:cmd;alt ${full80}
+bind pad6:cmd;alt ${rightmost}
+bind pad7:cmd;alt ${topleftmost}
+bind pad8:cmd;alt ${tophalfmost}
+bind pad9:cmd;alt ${toprightmost}
+
+bind pad1:cmd;alt;ctrl ${bottomleftless}
+bind pad2:cmd;alt;ctrl ${bottomhalfless}
+bind pad3:cmd;alt;ctrl ${bottomrightless}
+bind pad4:cmd;alt;ctrl ${leftless}
+bind pad5:cmd;alt;ctrl ${full50}
+bind pad6:cmd;alt;ctrl ${rightless}
+bind pad7:cmd;alt;ctrl ${topleftless}
+bind pad8:cmd;alt;ctrl ${tophalfless}
+bind pad9:cmd;alt;ctrl ${toprightless}
+
+bind f:cmd;alt;ctrl ${full}
+
+
+bind padEnter:cmd grid padding:5 ${mon-laptop}:6,2 ${mon-asus}:8,3
+#bind pad+:cmd throw next
+
+
+# Resize Bindings
+bind right:alt       resize +10% +0
+bind left:alt        resize -10% +0
+bind up:alt          resize +0   -10%
+bind down:alt        resize +0   +10%
+bind right:ctrl;alt  resize -10% +0 bottom-right
+bind left:ctrl;alt   resize +10% +0 bottom-right
+bind up:ctrl;alt     resize +0   +10% bottom-right
+bind down:ctrl;alt   resize +0   -10% bottom-right
+
+# Push Bindings
+bind right:ctrl;cmd  push right bar-resize:screenSizeX/3
+bind left:ctrl;cmd   push left  bar-resize:screenSizeX/3
+bind up:ctrl;cmd     push up    bar-resize:screenSizeY/2
+bind down:ctrl;cmd   push down  bar-resize:screenSizeY/2
+
+# Nudge Bindings
+bind right:shift;alt nudge +10% +0
+bind left:shift;alt  nudge -10% +0
+bind up:shift;alt    nudge +0   -10%
+bind down:shift;alt  nudge +0   +10%
+
+# Throw Bindings
+bind 1:ctrl;alt         throw 0 resize
+bind 2:ctrl;alt         throw 1 resize
+bind 3:ctrl;alt         throw 2 resize
+bind right:ctrl;alt;cmd throw right resize
+bind left:ctrl;alt;cmd  throw left  resize
+bind up:ctrl;alt;cmd    throw up    resize
+bind down:ctrl;alt;cmd  throw down  resize
+
+# Focus Bindings
+bind right:cmd    focus right
+bind left:cmd     focus left
+bind up:cmd       focus up
+bind down:cmd     focus down
+bind up:cmd;alt   focus behind
+bind down:cmd;alt focus behind
+
+# Window Hints
+bind esc:cmd hint
