@@ -12,5 +12,14 @@ brew install brew-cask
 brew cask install dropbox
 brew cask install google-chrome
 brew cask install vlc
+brew cask install audacity
+brew cask install openoffice
+brew cask install rdio
+brew cask install spotify
+brew cask install hazel
+brew cask install robomongo
+brew cask install torbrowser
+brew cask install slate
+brew cask install calibre
 
 cleanup
