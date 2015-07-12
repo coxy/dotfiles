@@ -16,9 +16,10 @@ brew install brew-cask
 #brew cask install openoffice
 brew cask install rdio
 brew cask install spotify
+brew cask install iterm2
 #brew cask install robomongo
 #brew cask install torbrowser
-brew cask install slate
+#brew cask install slate
 #brew cask install calibre
 brew cask install sublime-text
 
