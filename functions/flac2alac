@@ -1,0 +1,17 @@
+# converts all FLAC files in given 
+# to Apple Lossless directory
+
+flac2alac() {
+  for f ($1/**/*.flac) {
+    dir=${f%/*}
+    outdir=_CONVERTED_/$dir
+    outfile=_CONVERTED_/${f%.*}.m4a
+    echo Converting $f
+    mkdir -p $outdir
+    # avconv -i "$f" -y -vn -acodec alac "$outfile";
+    # mp4box -brand "M4A :0" -rb iso2 "$outfile";
+    # ffmpeg -i "$f" -vf "crop=((in_w/2)*2):((in_h/2)*2)" -c:a alac "$outfile"
+    xld -f alac -o "$outfile" "$f"
+  }
+  echo Done!
+}
