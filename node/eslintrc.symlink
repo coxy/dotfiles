@@ -1,18 +1,24 @@
 {
-  // I want to use babel-eslint for parsing!
-  "parser": "babel-eslint",
-  "env": {
-    // I write for browser
-    "browser": true,
-    // in CommonJS
-    "node": true
-  },
-  // To give you an idea how to override rule options:
+  "extends": "eslint-config-airbnb",
   "rules": {
-    "quotes": [2, "single"],
-    "semi": [2, "always"],
-    "eol-last": [0],
-    "no-mixed-requires": [0],
-    "no-underscore-dangle": [0]
+    // disable requiring trailing commas because it might be nice to revert to
+    // being JSON at some point, and I don't want to make big changes now.
+    "comma-dangle": 0
   }
+  // // I want to use babel-eslint for parsing!
+  // "parser": "babel-eslint",
+  // "env": {
+  //   // I write for browser
+  //   "browser": true,
+  //   // in CommonJS
+  //   "node": true
+  // },
+  // // To give you an idea how to override rule options:
+  // "rules": {
+  //   "quotes": [2, "single"],
+  //   "semi": [2, "always"],
+  //   "eol-last": [0],
+  //   "no-mixed-requires": [0],
+  //   "no-underscore-dangle": [0]
+  // }
 }

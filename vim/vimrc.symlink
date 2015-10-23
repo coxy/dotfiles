@@ -1,72 +1,106 @@
-call pathogen#infect()
-set nocompatible                " choose no compatibility with legacy vi
-set encoding=utf-8              " sensible encoding
-set showcmd                     " display incomplete commands
-filetype plugin indent on       " load file type plugins + indentation
-set number                      " need those line numbers
-set ruler                       " show the line/column number of the cursor position
-set shell=sh                    " hack for rvm
-"" Whitespace
-set nowrap                      " wrap lines, switch with set wrap/nowrap
-set linebreak                   " break line for wrapping at end of a word
-set tabstop=2 shiftwidth=2      " a tab is two spaces
-set expandtab                   " use spaces
-set backspace=indent,eol,start  " backspace through everything in insert mode
-set scrolloff=3                 " Minimum number
-set history=10000
+" Don't try to be vi compatible
+set nocompatible
 
-" colours
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'othree/yajs.vim'
+call vundle#end()
+
+
+" Turn on syntax highlighting
 syntax on
-set background=dark
-colorscheme solarized
 
-"" Searching
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
-set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
-set wildmenu                    " enhanced command line completion
-set wildignore+=*.o,*.obj,.bundle,coverage,.DS_Store,_html,.git,*.rbc,*.class,.svn,vendor/gems/*,vendor/rails/*
-set complete=.,w,b,u,t          " don't complete with included files (i)
-set foldmethod=manual           " for super fast autocomplete
+" For plugins to load correctly
+filetype plugin indent on
 
-" Window
-set cmdheight=2                 " number of lines for the command line
-set laststatus=2                " always have a status line
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
-set showtabline=2               " always show tab bar
-set winwidth=84                 " 
+" TODO: Pick a leader key
+" let mapleader = ","
 
-" force vim
-map <Left> :echo "damnit!"<cr>
-map <Right> :echo "you suck!"<cr>
-map <Up> :echo "this is why you fail"<cr>
-map <Down> :echo "nooooo!"<cr>
+" Security
+set modelines=0
 
-" NERDTree
-map <C-t> :NERDTreeToggle<cr>
+" Show line numbers
+set number
 
-" CtlrP
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" Show file stats
+set ruler
 
-" Omnifunc
-" if has("autocmd")
-"   autocmd FileType ruby set omnifunc=rubycomplete#Complete
-"   autocmd FileType ruby let g:rubycomplete_buffer_loading=1
-"   autocmd FileType ruby let g:rubycomplete_classes_in_global=1
-" endif
+" Blink cursor on error instead of beeping (grr)
+set visualbell
 
-" Supertab
-" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+" Encoding
+set encoding=utf-8
 
-" SnipMate
-let g:acp_behaviorSnipmateLength = 1
-" let g:snippets_dir = "~/.vim/snippets"
-"
-"
-" default file types
-syntax on
-filetype on
-au BufNewFile,BufRead *.dump set filetype=sql
-au BufNewFile,BufRead *.rxslt set filetype=ruby
-au BufNewFile,BufRead *.gsub set filetype=ruby
+" Whitespace
+set wrap
+set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
+
+" Cursor motion
+set scrolloff=3
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
+
+" Move up/down editor lines
+nnoremap j gj
+nnoremap k gk
+
+" Allow hidden buffers
+set hidden
+
+" Rendering
+set ttyfast
+
+" Status bar
+set laststatus=2
+
+" Last line
+set showmode
+set showcmd
+
+" Searching
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+map <leader><space> :let @/=''<cr> " clear search
+
+" Remap help key.
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
+
+" Textmate holdouts
+
+" Formatting
+map <leader>q gqip
+
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+" Uncomment this to enable by default:
+" set list " To enable by default
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
+
+" Color scheme (terminal)
+" set t_Co=256
+" set background=dark
+
+" let g:solarized_termcolors=256
+" let g:solarized_termtrans=1
+" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+" in ~/.vim/colors/ and uncomment:
+colorscheme OceanicNext
