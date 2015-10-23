@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'uri'
+
+class ZBBackup
+  attr_accessor :app, :url, :parsed_url
+
+  def initialize(url, app='')
+    @app = app
+    @parsed_url = URI.parse(@url = url)
+  end
+
+  def backup
+    %x[#{cmd}]
+  end
+
+  def cmd
+    "mongodump --host #{@parsed_url.host} --port #{@parsed_url.port} -u #{@parsed_url.user} -p #{@parsed_url.password} -d #{@parsed_url.path.sub(/^\/*/, '')} #{app_dir}"
+  end
+
+  def app_dir
+    return '' if @app.to_s == ''
+    "-o #{@app}"
+  end
+end
+
+ZBBackup.new(ENV['ZB_MONGOLAB_URI'], '/Users/coxy/Dropbox/Backups/zapbangmagazine').backup
