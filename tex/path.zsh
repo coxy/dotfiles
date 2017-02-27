@@ -1,1 +1,1 @@
-export PATH=/usr/texbin:"$PATH"
+export PATH=/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin:"$PATH"
