@@ -39,11 +39,13 @@ git_prompt_info () {
 need_push () {
   if [ $($git rev-parse --is-inside-work-tree 2>/dev/null) ]
   then
-    remote_count=$(git remote | wc -l | bc)
+    branch_name=$(git symbolic-ref --short HEAD)
+    remote_count=$(git branch -r --list origin/$branch_name | wc -l | bc)
     if [[ $remote_count == 0 ]]
     then
+    echo " no remote branch at %{$fg_bold[magenta]%}origin/$branch_name%{$reset_color%}"
     else
-      number=$($git cherry -v origin/$(git symbolic-ref --short HEAD) | wc -l | bc)
+      number=$($git cherry -v origin/$branch_name | wc -l | bc)
       if [[ $number == 0 ]]
       then
         echo " "
