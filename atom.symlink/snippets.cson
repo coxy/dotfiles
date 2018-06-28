@@ -1,0 +1,32 @@
+".text.html.vue":
+  "Vue i18n":
+    "prefix": "i18n"
+    "body": """
+      <i18n>
+        en:
+          $1
+      </i18n>
+    """
+
+".text.html.vue":
+  "Vue component":
+    "prefix": "vuecomp"
+    "body": """
+      <template>
+        $1
+      </template>
+
+      <i18n>
+        en:
+
+      </i18n>
+
+      <script>
+        export default {
+        }
+      </script>
+
+      <style lang="scss" scoped>
+      </style>
+
+    """
