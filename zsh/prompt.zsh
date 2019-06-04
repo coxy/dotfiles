@@ -64,7 +64,17 @@ battery_status() {
   $ZSH/bin/battery-status
 }
 
-export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push)\n› '
+get_kubectl_context() {
+  context=$(kubectl config view | grep current-context | sed 's/current-context: //')
+  if [[ $context == "gke_prolific-1091_europe-west1-b_prolific-production" ]]
+  then
+    echo "%{$fg_bold[red]%}[$context]%{$reset_color%} 😨😨😨"
+  else
+    echo "%{$fg_bold[yellow]%}[$context]%{$reset_color%}"
+  fi
+}
+
+export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push) $(get_kubectl_context)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
