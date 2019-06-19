@@ -65,7 +65,7 @@ battery_status() {
 }
 
 get_kubectl_context() {
-  context=$(kubectl config view | grep current-context | sed 's/current-context: //')
+  context=$(kubectl config current-context)
   if [[ $context == "gke_prolific-1091_europe-west1-b_prolific-production" ]]
   then
     echo "%{$fg_bold[red]%}[$context]%{$reset_color%} 😨😨😨"
