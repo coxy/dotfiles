@@ -1,1 +1,1 @@
-rclone sync --size-only --progress --verbose dropbox:media/music/albums/lossless /Volumes/Media/music/albums/lossless
+rclone sync --size-only --progress --verbose dropbox:Media/music/albums/lossless /Volumes/Media/music/albums/lossless

@@ -1,0 +1,1 @@
+ rclone sync --size-only --progress --verbose /Volumes/Media/Photos dropbox:Media/Photos/
