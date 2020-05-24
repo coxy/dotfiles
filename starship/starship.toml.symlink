@@ -1,0 +1,11 @@
+[kubernetes]
+style = "dimmed blue"
+disabled = false
+[kubernetes.context_aliases]
+"gke_prolific-1091_europe-west1-b_prolific-dev" = "dev"
+"gke_prolific-1091_europe-west1-b_prolific-test" = "test"
+"gke_prolific-1091_europe-west1-b_prolific-staging" = "staging"
+"gke_prolific-1091_europe-west1-b_prolific-production" = "production"
+
+[git_status]
+show_sync_count=true
